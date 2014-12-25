@@ -10,7 +10,7 @@ versenyzok_hiba = 0;
 
 	while (versenyzok <= 0 || versenyzok > 20) {
 		if (versenyzok_hiba == 1) {
-			printf("\nHiba! Nem 1 es 20 kozotti versenyzo szam lett megadva!");
+			printf("Hiba! Nem 1 es 20 kozotti versenyzo szam lett megadva!");
 		}
 		
 		printf("\nKerem adja meg a versenyzok letszamat 1 es 20 kozott: ");
@@ -40,7 +40,7 @@ versenyzok_hiba3 = 0;
 		while (verseny_rajtszamok[i] <= 0 || verseny_rajtszamok[i] > versenyzok){
 		
 			if (versenyzok_hiba2 == 1) {
-				printf("\nHiba! Nem 1 es %d kozotti rajtszam lett megadva!", versenyzok);
+				printf("Hiba! Nem 1 es %d kozotti rajtszam lett megadva!", versenyzok);
 			}
 			
 			printf("\nKerem adja meg a(z) %d. versenyzo rajtszamat 1 es %d kozott: ", i+1, versenyzok);
@@ -56,10 +56,10 @@ versenyzok_hiba3 = 0;
 		while (verseny_eredmenyek[i] < 0.0 || verseny_eredmenyek[i] > 10.0){
 		
 			if (versenyzok_hiba3 == 1) {
-				printf("\nHiba! Nem 0.0 es 10.0 kozotti eredmeny lett megadva!");
+				printf("Hiba! Nem 0.0 es 10.0 kozotti eredmeny lett megadva!");
 			}
 			
-			printf("\nKerem adja meg a(z) %d. versenyzo eredmenyet meterben 0.0 es 10.0: ", i+1);
+			printf("Kerem adja meg a(z) %d. versenyzo eredmenyet meterben 0.0 es 10.0: ", i+1);
 			scanf("%f", &verseny_eredmenyek[i]);
 			
 			if (verseny_eredmenyek[i] < 0.0 || verseny_eredmenyek[i] > 10.0) {
@@ -70,6 +70,8 @@ versenyzok_hiba3 = 0;
 		}
 	}
 
+// legjobb ugro
+	
 int i_max, max;
 	
 	
@@ -82,6 +84,21 @@ int i_max, max;
 	}
 	
 	printf("\n\n A legjobb eredmenyt ugro jatekos rajtszama: %d, eredmenye: %fm.", verseny_rajtszamok[max], verseny_eredmenyek[max]);
+	
+	// legrosszabbul ugro
+	
+	int i_min, min;
+	
+	
+	min = 0;
+	
+	for(i_min=0;versenyzok>i_min;i_min++){
+		if (verseny_eredmenyek[min]>verseny_eredmenyek[i_min]){
+			min = i_min;
+		}
+	}
+	
+	printf("\n A legrosszabb eredmenyt ugro jatekos rajtszama: %d, eredmenye: %fm.", verseny_rajtszamok[min], verseny_eredmenyek[min]);
 	
 	return (0);
 }
