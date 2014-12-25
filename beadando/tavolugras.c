@@ -3,6 +3,8 @@
 int main(void) {
 int versenyzok, versenyzok_hiba;
 
+printf("\nUdvozlom! Ez a program egy tavolugrasi verseny eredmenyeit kezeli. Elso sorban kerem adja meg, hogy a versenyen hany versenyzo vett reszt, mely minimum 1 es maximum 20 versenyzo lehet. Majd ezutan adja meg az elso versenyzo rajtszamat es a versenyen elert eredmenyet 0 es 10 meter kozott. Ezt ismetelje meg amig el nem fogynak a versenyzok. A program ezutan megmondja, hogy melyik versenyzo teljesitett a legjobban, illetve legrosszabbul tovabba mennyit ugrottak atlagosan a versenyzok!");
+
  // versenyzok letszamanak bekerese
 
 versenyzok = 0;
@@ -113,7 +115,7 @@ int i_max, max;
 	
 	atlag = osszesen / versenyzok;
 	
-	printf("\nAz ugrok atlagos ugrastavolsaga %fm", atlag);
+	printf("\nAz ugrok atlagos ugrastavolsaga %fm.", atlag);
 	
 	return (0);
 }

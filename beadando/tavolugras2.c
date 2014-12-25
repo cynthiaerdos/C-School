@@ -3,11 +3,12 @@
 int main(void) {
 
 int sorszam, rajtszam, max_rajtszam, min_rajtszam;
-float eredmeny, max_eredmeny, min_eredmeny, atlag_eredmeny;
+float eredmeny, max_eredmeny, min_eredmeny, atlag_eredmeny, osszeg_eredmeny;
 
 	sorszam = 0;
 	max_eredmeny = -1;
 	min_eredmeny = 11;
+	osszeg_eredmeny = 0;
 
 	while(0 == 0){
 	
@@ -24,6 +25,7 @@ float eredmeny, max_eredmeny, min_eredmeny, atlag_eredmeny;
 			}
 			printf("\nA legjobb ugrast a %d. rajtszamu versenyzo ugrotta %fm-es eredmennyel!",max_rajtszam , max_eredmeny);
 			printf("\nA legrosszabb ugrast a %d. rajtszamu versenyzo ugrotta %fm-es eredmennyel!",min_rajtszam , min_eredmeny);
+			printf("\nA versenyzok atlagosan %fm-t ugrottak!", atlag_eredmeny);
 			return (0);
 		
 		}
@@ -45,6 +47,10 @@ float eredmeny, max_eredmeny, min_eredmeny, atlag_eredmeny;
 			min_eredmeny = eredmeny;
 			min_rajtszam = rajtszam;
 		}
+		
+		osszeg_eredmeny = osszeg_eredmeny + eredmeny;
+		atlag_eredmeny = osszeg_eredmeny / (sorszam+1);
+		
 		
 		sorszam++;
 	}
