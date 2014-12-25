@@ -83,7 +83,7 @@ int i_max, max;
 		}
 	}
 	
-	printf("\n\n A legjobb eredmenyt ugro jatekos rajtszama: %d, eredmenye: %fm.", verseny_rajtszamok[max], verseny_eredmenyek[max]);
+	printf("\n\nA legjobb eredmenyt ugro jatekos rajtszama: %d, eredmenye: %fm.", verseny_rajtszamok[max], verseny_eredmenyek[max]);
 	
 	// legrosszabbul ugro
 	
@@ -98,7 +98,22 @@ int i_max, max;
 		}
 	}
 	
-	printf("\n A legrosszabb eredmenyt ugro jatekos rajtszama: %d, eredmenye: %fm.", verseny_rajtszamok[min], verseny_eredmenyek[min]);
+	printf("\nA legrosszabb eredmenyt ugro jatekos rajtszama: %d, eredmenye: %fm.", verseny_rajtszamok[min], verseny_eredmenyek[min]);
+	
+	// atlagos ugras
+	
+	int i_atlag;
+	float osszesen, atlag;
+	
+	osszesen = 0.0;
+	
+	for (i_atlag = 0; i_atlag < versenyzok; i_atlag++){
+		osszesen = osszesen + verseny_eredmenyek[i_atlag];
+	}
+	
+	atlag = osszesen / versenyzok;
+	
+	printf("\nAz ugrok atlagos ugrastavolsaga %fm", atlag);
 	
 	return (0);
 }
