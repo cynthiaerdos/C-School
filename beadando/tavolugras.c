@@ -37,16 +37,16 @@ versenyzok_hiba3 = 0;
 	}
 
 	for (i = 0 ; versenyzok > i ; i++){
-		while (verseny_rajtszamok[i] <= 0 || verseny_rajtszamok[i] > versenyzok){
+		while (verseny_rajtszamok[i] <= 0 || verseny_rajtszamok[i] > 20){
 		
 			if (versenyzok_hiba2 == 1) {
-				printf("Hiba! Nem 1 es %d kozotti rajtszam lett megadva!", versenyzok);
+				printf("Hiba! Nem 1 es 20 kozotti rajtszam lett megadva!");
 			}
 			
-			printf("\nKerem adja meg a(z) %d. versenyzo rajtszamat 1 es %d kozott: ", i+1, versenyzok);
+			printf("\nKerem adja meg a(z) %d. versenyzo rajtszamat 1 es 20 kozott: ", i+1);
 			scanf("%d", &verseny_rajtszamok[i]);
 			
-			if (verseny_rajtszamok[i] <= 0 || verseny_rajtszamok[i] > versenyzok) {
+			if (verseny_rajtszamok[i] <= 0 || verseny_rajtszamok[i] > 20) {
 				versenyzok_hiba2 = 1;
 			} else {
 				versenyzok_hiba2 = 0;
