@@ -12,7 +12,7 @@ versenyzok_hiba = 0;
 
 	while (versenyzok <= 0 || versenyzok > 20) {
 		if (versenyzok_hiba == 1) {
-			printf("Hiba! Nem 1 es 20 kozotti versenyzo szam lett megadva!");
+			printf("\nHiba! Nem 1 es 20 kozotti versenyzo szam lett megadva!");
 		}
 		
 		printf("\nKerem adja meg a versenyzok letszamat 1 es 20 kozott: ");
@@ -42,7 +42,7 @@ versenyzok_hiba3 = 0;
 		while (verseny_rajtszamok[i] <= 0 || verseny_rajtszamok[i] > 20){
 		
 			if (versenyzok_hiba2 == 1) {
-				printf("Hiba! Nem 1 es 20 kozotti rajtszam lett megadva!");
+				printf("\nHiba! Nem 1 es 20 kozotti rajtszam lett megadva!");
 			}
 			
 			printf("\nKerem adja meg a(z) %d. versenyzo rajtszamat 1 es 20 kozott: ", i+1);
@@ -58,10 +58,10 @@ versenyzok_hiba3 = 0;
 		while (verseny_eredmenyek[i] < 0.0 || verseny_eredmenyek[i] > 10.0){
 		
 			if (versenyzok_hiba3 == 1) {
-				printf("Hiba! Nem 0.0 es 10.0 kozotti eredmeny lett megadva!");
+				printf("\nHiba! Nem 0.0 es 10.0 kozotti eredmeny lett megadva!");
 			}
 			
-			printf("Kerem adja meg a(z) %d. versenyzo eredmenyet meterben 0.0 es 10.0: ", i+1);
+			printf("\nKerem adja meg a(z) %d. versenyzo eredmenyet meterben 0.0 es 10.0 kozott (pl. '6.28'): ", i+1);
 			scanf("%f", &verseny_eredmenyek[i]);
 			
 			if (verseny_eredmenyek[i] < 0.0 || verseny_eredmenyek[i] > 10.0) {

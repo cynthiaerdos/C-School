@@ -10,9 +10,11 @@ float eredmeny, max_eredmeny, min_eredmeny, atlag_eredmeny, osszeg_eredmeny;
 	min_eredmeny = 11;
 	osszeg_eredmeny = 0;
 
+	printf("\nUdvozlom! Ez a program egy tavolugrasi verseny eredmenyeit kezeli. Adja meg az elso versenyzo rajtszamat es a versenyen elert eredmenyet 0 es 10 meter kozott. Ezt ismetelje meg addig ahany versenyzot be szeretne 'vinni'. Majd ezutan adja meg, hogy a versenyzo rajtaszama '0' es ezutan a program megmondja, hogy melyik versenyzo teljesitett a legjobban, illetve legrosszabbul tovabba mennyit ugrottak atlagosan a versenyzok!");
+	
 	while(0 == 0){
 	
-		printf("\nKerem adja meg a(z) %d. versenyzo rajtszamat 1 es 20 kozott: ", sorszam+1);
+		printf("\nKerem adja meg a(z) %d. versenyzo rajtszamat 1 es 20 kozott (vagy 0-at): ", sorszam+1);
 		scanf("%d", &rajtszam);
 
 		if (rajtszam < 0 || rajtszam > 20) {
@@ -29,7 +31,7 @@ float eredmeny, max_eredmeny, min_eredmeny, atlag_eredmeny, osszeg_eredmeny;
 			return (0);
 		
 		}
-		printf("Kerem adja meg a(z) %d. versenyzo eredmenyet 0.0 es 10.0 kozott: ", sorszam+1);
+		printf("Kerem adja meg a(z) %d. versenyzo eredmenyet meterben 0.0 es 10.0 kozott (pl. '6.28'): ", sorszam+1);
 		scanf("%f", &eredmeny);
 
 		if (eredmeny < 0.0 || eredmeny > 10.0) {
