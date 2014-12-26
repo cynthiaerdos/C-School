@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:nsd="http://structorizer.fisch.lu/" text="&#34;TAVOLUGRAS2&#34;" comment="" color="ffffff" type="program" style="nice">
+	<children>
+		<instruction text="&#34;int sorszam, rajtszam, max_rajtszam, min_rajtszam&#34;,&#34;float eredmeny, max_eredmeny, min_eredmeny, atlag_eredmeny, osszeg_eredmeny&#34;" comment="" color="ffffff" rotated="0"></instruction>
+		<instruction text="&#34;sorszam = 0&#34;,&#34;max_eredmeny = -1&#34;,&#34;min_eredmeny = 11&#34;,&#34;osszeg_eredmeny = 0&#34;" comment="" color="ffffff" rotated="0"></instruction>
+		<instruction text="&#34;KI: udvozlo szoveg&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<while text="&#34;0 == 0&#34;" comment="&#34;&#34;" color="ffffff">
+			<qWhile>
+				<instruction text="&#34;KI: tajekoztato szoveg&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+				<instruction text="&#34;BE: rajtszam&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+				<alternative text="&#34;rajtszam == 0&#34;" comment="&#34;&#34;" color="ffffff">
+					<qTrue>
+						<alternative text="&#34;max_eredmeny == -1&#34;" comment="&#34;&#34;" color="ffffff">
+							<qTrue>
+								<instruction text="&#34;KI: tajekoztato uzenet&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+								<instruction text="&#34;return (0)&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+							</qTrue>
+							<qFalse>
+								<instruction text="&#34;  &#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+							</qFalse>
+						</alternative>
+						<instruction text="&#34;KI: tajekoztato uzenet, max_rajtszam , max_eredmeny&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+						<instruction text="&#34;KI: tajekoztato uzenet, min_rajtszam , min_eredmeny&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+						<instruction text="&#34;KI: tajekoztato uzenet, atlag_eredmeny&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+						<instruction text="&#34;return (0)&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+					</qTrue>
+					<qFalse>
+						<instruction text="&#34;  &#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+					</qFalse>
+				</alternative>
+				<instruction text="&#34;KI: tajekoztato uzenet, sorszam+1&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+				<instruction text="&#34;BE: eredmeny&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+				<alternative text="&#34;max_eredmeny &#60; eredmeny&#34;" comment="&#34;&#34;" color="ffffff">
+					<qTrue>
+						<instruction text="&#34;max_eredmeny = eredmeny&#34;,&#34;max_rajtszam = rajtszam&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+					</qTrue>
+					<qFalse>
+						<instruction text="&#34;  &#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+					</qFalse>
+				</alternative>
+				<alternative text="&#34;min_eredmeny &#62; eredmeny&#34;" comment="&#34;&#34;" color="ffffff">
+					<qTrue>
+						<instruction text="&#34;min_eredmeny = eredmeny&#34;,&#34;min_rajtszam = rajtszam&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+					</qTrue>
+					<qFalse>
+						<instruction text="&#34;  &#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+					</qFalse>
+				</alternative>
+				<instruction text="&#34;osszeg_eredmeny = osszeg_eredmeny + eredmeny&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+				<instruction text="&#34;atlag_eredmeny = osszeg_eredmeny / (sorszam+1)&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+				<instruction text="&#34;sorszam++&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+			</qWhile>
+		</while>
+		<instruction text="&#34;return (0)&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+	</children>
+</root>

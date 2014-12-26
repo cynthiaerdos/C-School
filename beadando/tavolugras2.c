@@ -17,10 +17,7 @@ float eredmeny, max_eredmeny, min_eredmeny, atlag_eredmeny, osszeg_eredmeny;
 		printf("\nKerem adja meg a(z) %d. versenyzo rajtszamat 1 es 20 kozott (vagy 0-at): ", sorszam+1);
 		scanf("%d", &rajtszam);
 
-		if (rajtszam < 0 || rajtszam > 20) {
-			printf("Hiba! Nem 1 es 20 kozotti rajtszam lett megadva!");
-			return (0);
-		} else if (rajtszam == 0){
+		if (rajtszam == 0){
 			if (max_eredmeny == -1){
 				printf("Nem lett versenyzo megadva!");
 				return (0);
@@ -34,11 +31,6 @@ float eredmeny, max_eredmeny, min_eredmeny, atlag_eredmeny, osszeg_eredmeny;
 		printf("Kerem adja meg a(z) %d. versenyzo eredmenyet meterben 0.0 es 10.0 kozott (pl. '6.28'): ", sorszam+1);
 		scanf("%f", &eredmeny);
 
-		if (eredmeny < 0.0 || eredmeny > 10.0) {
-			printf("Hiba! Nem 0.0 es 10.0 kozotti eredmeny lett megadva!");
-			return (0);
-			
-		}
 		
 		if (max_eredmeny < eredmeny){
 			max_eredmeny = eredmeny;

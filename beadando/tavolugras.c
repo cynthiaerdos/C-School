@@ -1,32 +1,22 @@
 #include <stdio.h>
 
 int main(void) {
-int versenyzok, versenyzok_hiba;
+int versenyzok;
 
 printf("\nUdvozlom! Ez a program egy tavolugrasi verseny eredmenyeit kezeli. Elso sorban kerem adja meg, hogy a versenyen hany versenyzo vett reszt, mely minimum 1 es maximum 20 versenyzo lehet. Majd ezutan adja meg az elso versenyzo rajtszamat es a versenyen elert eredmenyet 0 es 10 meter kozott. Ezt ismetelje meg amig el nem fogynak a versenyzok. A program ezutan megmondja, hogy melyik versenyzo teljesitett a legjobban, illetve legrosszabbul tovabba mennyit ugrottak atlagosan a versenyzok!");
 
  // versenyzok letszamanak bekerese
 
 versenyzok = 0;
-versenyzok_hiba = 0;
 
-	while (versenyzok <= 0 || versenyzok > 20) {
-		if (versenyzok_hiba == 1) {
-			printf("\nHiba! Nem 1 es 20 kozotti versenyzo szam lett megadva!");
-		}
 		
-		printf("\nKerem adja meg a versenyzok letszamat 1 es 20 kozott: ");
-		scanf("%d", &versenyzok);
-		versenyzok_hiba = 1;
-	}
+printf("\nKerem adja meg a versenyzok letszamat 1 es 20 kozott: ");
+scanf("%d", &versenyzok);
 	
 int i;
 int verseny_rajtszamok[versenyzok];
 float verseny_eredmenyek[versenyzok];
-int versenyzok_hiba2, versenyzok_hiba3;
 
-versenyzok_hiba2 = 0;
-versenyzok_hiba3 = 0;
 
 // tomb esetleges ertekeinek uritese
 
@@ -39,37 +29,13 @@ versenyzok_hiba3 = 0;
 	}
 
 	for (i = 0 ; versenyzok > i ; i++){
-		while (verseny_rajtszamok[i] <= 0 || verseny_rajtszamok[i] > 20){
-		
-			if (versenyzok_hiba2 == 1) {
-				printf("\nHiba! Nem 1 es 20 kozotti rajtszam lett megadva!");
-			}
-			
+
 			printf("\nKerem adja meg a(z) %d. versenyzo rajtszamat 1 es 20 kozott: ", i+1);
 			scanf("%d", &verseny_rajtszamok[i]);
 			
-			if (verseny_rajtszamok[i] <= 0 || verseny_rajtszamok[i] > 20) {
-				versenyzok_hiba2 = 1;
-			} else {
-				versenyzok_hiba2 = 0;
-			}
-		}
-		
-		while (verseny_eredmenyek[i] < 0.0 || verseny_eredmenyek[i] > 10.0){
-		
-			if (versenyzok_hiba3 == 1) {
-				printf("\nHiba! Nem 0.0 es 10.0 kozotti eredmeny lett megadva!");
-			}
-			
+
 			printf("\nKerem adja meg a(z) %d. versenyzo eredmenyet meterben 0.0 es 10.0 kozott (pl. '6.28'): ", i+1);
 			scanf("%f", &verseny_eredmenyek[i]);
-			
-			if (verseny_eredmenyek[i] < 0.0 || verseny_eredmenyek[i] > 10.0) {
-				versenyzok_hiba3 = 1;
-			} else {
-				versenyzok_hiba3 = 0;
-			}
-		}
 	}
 
 // legjobb ugro
@@ -118,4 +84,5 @@ int i_max, max;
 	printf("\nAz ugrok atlagos ugrastavolsaga %fm.", atlag);
 	
 	return (0);
+
 }
