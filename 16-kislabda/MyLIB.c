@@ -19,11 +19,16 @@ void baddata(void) {
 //
 
 float getfloat(char s[], float ah, float fh) {
-float value;
+float value, isint;
+int check;
 
 	do {
-		printf("%s [%.2f-%.2f]: ", s, ah, fh);
-		scanf("%f", &value);
+		check = 0;
+		do {
+			printf("%s [%.2f-%.2f]: ", s, ah, fh);
+			isint = scanf("%f", &value);
+			if (isint) {check = 1;} else {fflush(stdin); baddata();}
+		} while(check == 0);
 		if (value<ah || fh<value) { baddata(); }
 	} while (value<ah || fh<value);
 	return (value);
@@ -34,11 +39,15 @@ float value;
 //
 
 int getint(char s[], int ah, int fh) {
-int value;
-
+int value, isint;
+int check;
 	do {
-		printf("%s [%d-%d]: ", s, ah, fh);
-		scanf("%d", &value);
+		check = 0;
+		do {
+			printf("%s [%d-%d]: ", s, ah, fh);
+			isint = scanf("%d", &value);
+			if (isint) {check = 1;} else {fflush(stdin); baddata();}
+		} while(check == 0);
 		if (value<ah || fh<value) { baddata(); }
 	} while (value<ah || fh<value);
 	return (value);
