@@ -5,6 +5,19 @@
 #define MAXDOBAS 6
 #define DOBASSZAM 10
 
+int minDobas(int osszes[]){
+	int min, i;
+	min = MAXDOBAS+1;
+	
+	for(i = 0; i < (DOBASSZAM*3); i++){
+		if(min > osszes[i]){
+			min = osszes[i];
+		}
+	}
+	
+	return min;
+}
+
 void atlagosDobas(int diak[], float atlag, int diakszam){
 	int i;
 
@@ -49,8 +62,35 @@ int main(void){
 	atlag2 = atlagDiak(diak2, DOBASSZAM);
 	atlag3 = atlagDiak(diak3, DOBASSZAM);
 	
+	// 1. feldat
+	int min;
+	
 	atlagosDobas(diak1, atlag1, 1);
 	atlagosDobas(diak2, atlag2, 2);
 	atlagosDobas(diak3, atlag3, 3);
+	
+	//2. feladat
+	int osszesitett[DOBASSZAM*3];
+	int osszHossz = 0;
+	
+	for(i = 0; i < DOBASSZAM; i++){
+		osszesitett[osszHossz] = diak1[i];
+		osszHossz++;
+	}
+	
+	for(i = 0; i < DOBASSZAM; i++){
+		osszesitett[osszHossz] = diak2[i];
+		osszHossz++;
+	}
+	
+	for(i = 0; i < DOBASSZAM; i++){
+		osszesitett[osszHossz] = diak3[i];
+		osszHossz++;
+	}
+	
+	min = minDobas(osszesitett);
+	
+	printf("\n\nA jatek soran elert legkisebb dobas a(z) %d.", min);
+	
 	return (0);
 }
