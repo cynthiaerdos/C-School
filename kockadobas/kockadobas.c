@@ -2,8 +2,20 @@
 #include "MyLIB.h"
 
 #define MINDOBAS 1
-#define MAXDOBAS 6
+#define MAXDOBAS 30
 #define DOBASSZAM 10
+
+int letezik(int dobasok[], int tombhossz, int szam){
+	int i;
+	
+	for(i = 0; i < tombhossz; i++){
+		if(szam == dobasok[i]){
+			return (0);
+		}
+	}
+	
+	return (1);
+}
 
 int minDobas(int osszes[]){
 	int min, i;
@@ -62,14 +74,14 @@ int main(void){
 	atlag2 = atlagDiak(diak2, DOBASSZAM);
 	atlag3 = atlagDiak(diak3, DOBASSZAM);
 	
-	// 1. feldat
+	//------------1. feldat------------
 	int min;
 	
 	atlagosDobas(diak1, atlag1, 1);
 	atlagosDobas(diak2, atlag2, 2);
 	atlagosDobas(diak3, atlag3, 3);
 	
-	//2. feladat
+	//------------2. feladat------------
 	int osszesitett[DOBASSZAM*3];
 	int osszHossz = 0;
 	
@@ -91,6 +103,103 @@ int main(void){
 	min = minDobas(osszesitett);
 	
 	printf("\n\nA jatek soran elert legkisebb dobas a(z) %d.", min);
+	
+	//------------3. feladat------------
+	int kozos[DOBASSZAM], kozos1[DOBASSZAM], kozos2[DOBASSZAM], kozos3[DOBASSZAM];
+	int a, b, c, d;
+	int j, l;
+	int jelzes = 0;
+	
+	a = b = c = d = 0;
+	// 1. es 2. diak kozos dobasai
+	for(i = 0; i < DOBASSZAM; i++){
+		for(j = 0; j < DOBASSZAM && diak2[i]!=diak1[j]; j++){;}
+		if(diak2[i]==diak1[j]){
+			for(l = 0; l < b; l++){
+				if(kozos1[l] == diak2[i]){
+					jelzes = 1;
+				}
+			}
+			
+			if(jelzes == 0){
+				kozos1[b++] = diak2[i];
+			}
+			
+			jelzes = 0;
+		}
+	}
+	
+	// 2. es 3. diak kozos dobasai
+	for(i = 0; i < DOBASSZAM; i++){
+		for(j = 0; j < DOBASSZAM && diak3[i]!=diak2[j]; j++){;}
+		if(diak3[i]==diak2[j]){
+			for(l = 0; l < c; l++){
+				if(kozos2[l] == diak3[i]){
+					jelzes = 1;
+				}
+			}
+			
+			if(jelzes == 0){
+				kozos2[c++] = diak3[i];
+			}
+			
+			jelzes = 0;
+		}
+	}
+	
+	// 1. es 3. diak kozos dobasai
+	for(i = 0; i < DOBASSZAM; i++){
+		for(j = 0; j < DOBASSZAM && diak1[i]!=diak3[j]; j++){;}
+		if(diak1[i]==diak3[j]){
+			for(l = 0; l < d; l++){
+				if(kozos3[l] == diak1[i]){
+					jelzes = 1;
+				}
+			}
+			
+			if(jelzes == 0){
+				kozos3[d++] = diak1[i];
+			}
+			
+			jelzes = 0;
+		}
+	}
+	
+	jelzes = 0;
+	
+	int osszesKozos[(b+c+d)];
+	int kozosHossz = 0;
+	
+	for(i = 0; i < b; i++){
+		osszesKozos[kozosHossz] = kozos1[i];
+		kozosHossz++;
+	}
+	
+	for(i = 0; i < c; i++){
+		osszesKozos[kozosHossz] = kozos2[i];
+		kozosHossz++;
+	}
+	
+	for(i = 0; i < d; i++){
+		osszesKozos[kozosHossz] = kozos3[i];
+		kozosHossz++;
+	}
+		
+	for(i = MINDOBAS; i < MAXDOBAS+1; i++){
+		if(letezik(osszesKozos, kozosHossz, i) == 0){
+			kozos[a++] = i;
+		}
+	}
+	
+	printf("\n\nKozos dobasok: ");
+	
+	for(i = 0; i < a; i++){
+		if(i == (a-1)){
+			printf("%d.", kozos[i]);
+		} else {
+			printf("%d, ", kozos[i]);
+		}
+	}
 	
 	return (0);
 }
