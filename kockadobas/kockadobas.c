@@ -2,7 +2,7 @@
 #include "MyLIB.h"
 
 #define MINDOBAS 1
-#define MAXDOBAS 30
+#define MAXDOBAS 7 // 1-el nagyobb szamnak kell lennie mint a valodi maximum.
 #define DOBASSZAM 10
 
 int letezik(int dobasok[], int tombhossz, int szam){
@@ -20,6 +20,7 @@ int letezik(int dobasok[], int tombhossz, int szam){
 int minDobas(int osszes[]){
 	int min, i;
 	min = MAXDOBAS+1;
+
 	
 	for(i = 0; i < (DOBASSZAM*3); i++){
 		if(min > osszes[i]){
@@ -28,6 +29,19 @@ int minDobas(int osszes[]){
 	}
 	
 	return min;
+}
+
+int maxDobas(int osszes[]){
+	int max, i;
+	max = MINDOBAS-1;
+
+	for(i = 0; i < (DOBASSZAM*3); i++){
+		if(max < osszes[i]){
+			max = osszes[i];
+		}
+	}
+	
+	return max;
 }
 
 void atlagosDobas(int diak[], float atlag, int diakszam){
@@ -64,7 +78,7 @@ int main(void){
 	int i;
 	float atlag1, atlag2, atlag3;
 	
-	printf("A dobasokban 3 tanulo vesz reszt.\nMind a 3-an 10 alkalommal dobnak egy szabalyos dobokockaval.\nA dobokocka 1-6-ig adhat ertekeket.");
+	printf("\nA dobasokban 3 tanulo vesz reszt.\nMind a 3-an 10 alkalommal dobnak egy szabalyos dobokockaval.\nA dobokocka 1-6-ig adhat ertekeket.");
 	
 	rndintarr(MINDOBAS, MAXDOBAS, diak1, DOBASSZAM);
 	rndintarr(MINDOBAS, MAXDOBAS, diak2, DOBASSZAM);
@@ -169,7 +183,7 @@ int main(void){
 	
 	int osszesKozos[(b+c+d)];
 	int kozosHossz = 0;
-	
+
 	for(i = 0; i < b; i++){
 		osszesKozos[kozosHossz] = kozos1[i];
 		kozosHossz++;
@@ -190,6 +204,8 @@ int main(void){
 			kozos[a++] = i;
 		}
 	}
+		
+	//------------4. feladat------------
 	
 	printf("\n\nKozos dobasok: ");
 	
@@ -201,5 +217,45 @@ int main(void){
 		}
 	}
 	
+	//------------5. feladat------------
+	int kozosMennyiseg[DOBASSZAM*3];
+	int maxDobasok[(b+c+d)];
+	int cs;
+	
+	for(i = 0; i < DOBASSZAM*3; i++){
+		kozosMennyiseg[i] = 0;
+	}
+	for (i=0; i<kozosHossz-1; i++) {
+		for (j=i+1; j<kozosHossz; j++) {
+			if (osszesKozos[i]>osszesKozos[j]) {
+				cs = osszesKozos[i];
+				osszesKozos[i] = osszesKozos[j];
+				osszesKozos[j] = cs;
+			}
+		}
+	}
+
+	
+
+	jelzes = 0;
+	
+	for(i = 0; i < a; i++){
+		for(j = 0; j < kozosHossz; j++){
+			if(kozos[i]==osszesKozos[j]){
+				jelzes++;
+			}
+		}
+		kozosMennyiseg[i] = jelzes;
+		jelzes = 0;
+	}
+	
+	int maximumDobas = maxDobas(kozosMennyiseg);
+
+	for (i=0; kozosMennyiseg[i]!=maximumDobas; i++) { ; }
+			
+	int legtobbErtek = osszesKozos[i];
+	
+	printf("\n\nA jatek soran legtobbszor a(z) %d-es szamot dobtak.\nEzt a szamot osszesen %d alkalommal dobtak a jatek soran.\nEz az osszes dobashoz viszonyitva %.2f%%.", legtobbErtek, maximumDobas, ((float) maximumDobas/(float) DOBASSZAM)*100);
+
 	return (0);
 }
