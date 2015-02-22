@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:nsd="http://structorizer.fisch.lu/" text="&#34;KOCKADOBAS&#34;" comment="&#34;&#34;" color="ffffff" type="program" style="nice">
+	<children>
+		<instruction text="&#34;#define MINDOBAS 1&#34;,&#34;#define MAXDOBAS 7&#34;,&#34;#define DOBASSZAM 10&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<instruction text="&#34;int n, m, o&#34;,&#34;int diak1[DOBASSZAM], diak2[DOBASSZAM], diak3[DOBASSZAM]&#34;,&#34;int i&#34;,&#34;float atlag1, atlag2, atlag3&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<instruction text="&#34;KI: A dobasokban 3 tanulo vesz reszt. Mind a 3-an 10 alkalommal dobnak egy szabalyos dobokockaval. A dobokocka 1-6-ig adhat ertekeket.&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<instruction text="&#34;rndintarr(MINDOBAS, MAXDOBAS, diak1, DOBASSZAM)&#34;,&#34;rndintarr(MINDOBAS, MAXDOBAS, diak2, DOBASSZAM)&#34;,&#34;rndintarr(MINDOBAS, MAXDOBAS, diak3, DOBASSZAM)&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<instruction text="&#34;atlag1 = atlagDiak(diak1, DOBASSZAM)&#34;,&#34;atlag2 = atlagDiak(diak2, DOBASSZAM)&#34;,&#34;atlag3 = atlagDiak(diak3, DOBASSZAM)&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<instruction text="&#34;int min&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<instruction text="&#34;atlagosDobas(diak1, atlag1, 1)&#34;,&#34;atlagosDobas(diak2, atlag2, 2)&#34;,&#34;atlagosDobas(diak3, atlag3, 3)&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<instruction text="&#34;int osszesitett[DOBASSZAM*3]&#34;,&#34;int osszHossz = 0&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<for text="&#34;i = 0; i &#60; DOBASSZAM; i++&#34;" comment="&#34;&#34;" color="ffffff">
+			<qFor>
+				<instruction text="&#34;osszesitett[osszHossz] = diak1[i]&#34;,&#34;osszHossz++&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+			</qFor>
+		</for>
+		<for text="&#34;i = 0; i &#60; DOBASSZAM; i++&#34;" comment="" color="ffffff">
+			<qFor>
+				<instruction text="&#34;osszesitett[osszHossz] = diak2[i]&#34;,&#34;osszHossz++&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+			</qFor>
+		</for>
+		<for text="&#34;i = 0; i &#60; DOBASSZAM; i++&#34;" comment="" color="ffffff">
+			<qFor>
+				<instruction text="&#34;osszesitett[osszHossz] = diak3[i]&#34;,&#34;osszHossz++&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+			</qFor>
+		</for>
+		<instruction text="&#34;min = minDobas(osszesitett)&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<instruction text="&#34;KI: min&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<instruction text="&#34;int kozos[DOBASSZAM], kozos1[DOBASSZAM], kozos2[DOBASSZAM], kozos3[DOBASSZAM]&#34;,&#34;int a, b, c, d&#34;,&#34;int j, l&#34;,&#34;int jelzes = 0&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<instruction text="&#34;a = b = c = d = 0&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<for text="&#34;i = 0; i &#60; DOBASSZAM; i++&#34;" comment="&#34;&#34;" color="ffffff">
+			<qFor>
+				<for text="&#34;j = 0; j &#60; DOBASSZAM &amp;&amp; diak2[i]!=diak1[j]; j++&#34;" comment="&#34;&#34;" color="ffffff">
+					<qFor>
+						<instruction text="&#34;  &#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+					</qFor>
+				</for>
+				<alternative text="&#34;diak2[i]==diak1[j]&#34;" comment="&#34;&#34;" color="ffffff">
+					<qTrue>
+						<for text="&#34;l = 0; l &#60; b; l++&#34;" comment="&#34;&#34;" color="ffffff">
+							<qFor>
+								<alternative text="&#34;kozos1[l] == diak2[i]&#34;" comment="&#34;&#34;" color="ffffff">
+									<qTrue>
+										<instruction text="&#34;jelzes = 1&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+									</qTrue>
+									<qFalse>
+										<instruction text="&#34;  &#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+									</qFalse>
+								</alternative>
+							</qFor>
+						</for>
+					</qTrue>
+					<qFalse>
+						<instruction text="&#34;  &#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+					</qFalse>
+				</alternative>
+			</qFor>
+		</for>
+		<for text="&#34;i = 0; i &#60; DOBASSZAM; i++&#34;" comment="" color="ffffff">
+			<qFor>
+				<for text="&#34;j = 0; j &#60; DOBASSZAM &amp;&amp; diak3[i]!=diak2[j]; j++&#34;" comment="&#34;&#34;" color="ffffff">
+					<qFor>
+						<instruction text="" comment="" color="ffffff" rotated="0"></instruction>
+					</qFor>
+				</for>
+				<alternative text="&#34;diak3[i]==diak2[j]&#34;" comment="&#34;&#34;" color="ffffff">
+					<qTrue>
+						<for text="&#34;l = 0; l &#60; b; l++&#34;" comment="" color="ffffff">
+							<qFor>
+								<alternative text="&#34;kozos2[l] == diak3[i]&#34;" comment="&#34;&#34;" color="ffffff">
+									<qTrue>
+										<instruction text="&#34;jelzes = 1&#34;" comment="" color="ffffff" rotated="0"></instruction>
+									</qTrue>
+									<qFalse>
+										<instruction text="" comment="" color="ffffff" rotated="0"></instruction>
+									</qFalse>
+								</alternative>
+							</qFor>
+						</for>
+					</qTrue>
+					<qFalse>
+						<instruction text="" comment="" color="ffffff" rotated="0"></instruction>
+					</qFalse>
+				</alternative>
+			</qFor>
+		</for>
+		<for text="&#34;i = 0; i &#60; DOBASSZAM; i++&#34;" comment="" color="ffffff">
+			<qFor>
+				<for text="&#34;j = 0; j &#60; DOBASSZAM &amp;&amp; diak3[i]!=diak1[j]; j++&#34;" comment="&#34;&#34;" color="ffffff">
+					<qFor>
+						<instruction text="" comment="" color="ffffff" rotated="0"></instruction>
+					</qFor>
+				</for>
+				<alternative text="&#34;diak1[i]==diak3[j]&#34;" comment="&#34;&#34;" color="ffffff">
+					<qTrue>
+						<for text="&#34;l = 0; l &#60; b; l++&#34;" comment="" color="ffffff">
+							<qFor>
+								<alternative text="&#34;kozos3[l] == diak1[i]&#34;" comment="&#34;&#34;" color="ffffff">
+									<qTrue>
+										<instruction text="&#34;jelzes = 1&#34;" comment="" color="ffffff" rotated="0"></instruction>
+									</qTrue>
+									<qFalse>
+										<instruction text="" comment="" color="ffffff" rotated="0"></instruction>
+									</qFalse>
+								</alternative>
+							</qFor>
+						</for>
+					</qTrue>
+					<qFalse>
+						<instruction text="" comment="" color="ffffff" rotated="0"></instruction>
+					</qFalse>
+				</alternative>
+			</qFor>
+		</for>
+		<instruction text="&#34;jelzes = 0&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<instruction text="&#34;int osszesKozos[(b+c+d)]&#34;,&#34;int kozosHossz = 0&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<for text="&#34;i = 0; i &#60; b; i++&#34;" comment="&#34;&#34;" color="ffffff">
+			<qFor>
+				<instruction text="&#34;osszesKozos[kozosHossz] = kozos1[i]&#34;,&#34;kozosHossz++&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+			</qFor>
+		</for>
+		<for text="&#34;i = 0; i &#60; c; i++&#34;" comment="&#34;&#34;" color="ffffff">
+			<qFor>
+				<instruction text="&#34;osszesKozos[kozosHossz] = kozos2[i]&#34;,&#34;kozosHossz++&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+			</qFor>
+		</for>
+		<for text="&#34;i = 0; i &#60; d; i++&#34;" comment="&#34;&#34;" color="ffffff">
+			<qFor>
+				<instruction text="&#34;osszesKozos[kozosHossz] = kozos3[i]&#34;,&#34;kozosHossz++&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+			</qFor>
+		</for>
+		<for text="&#34;i = MINDOBAS; i &#60; MAXDOBAS+1; i++&#34;" comment="&#34;&#34;" color="ffffff">
+			<qFor>
+				<alternative text="&#34;letezik(osszesKozos, kozosHossz, i) == 0&#34;" comment="&#34;&#34;" color="ffffff">
+					<qTrue>
+						<instruction text="&#34;kozos[a++] = i&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+					</qTrue>
+					<qFalse>
+						<instruction text="&#34;  &#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+					</qFalse>
+				</alternative>
+			</qFor>
+		</for>
+		<instruction text="&#34;KI: Kozos dobasok&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<for text="&#34;i = 0; i &#60; a; i++&#34;" comment="&#34;&#34;" color="ffffff">
+			<qFor>
+				<alternative text="&#34;i == (a-1)&#34;" comment="&#34;&#34;" color="ffffff">
+					<qTrue>
+						<instruction text="&#34;KI: kozos[i].&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+					</qTrue>
+					<qFalse>
+						<instruction text="&#34;KI: kozos[i], &#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+					</qFalse>
+				</alternative>
+			</qFor>
+		</for>
+		<instruction text="&#34;int kozosMennyiseg[DOBASSZAM*3]&#34;,&#34;int maxDobasok[(b+c+d)]&#34;,&#34;int cs&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<for text="&#34;i=0; i&#60;kozosHossz-1; i++&#34;" comment="&#34;&#34;" color="ffffff">
+			<qFor>
+				<for text="&#34;j=i+1; j&#60;kozosHossz; j++&#34;" comment="&#34;&#34;" color="ffffff">
+					<qFor>
+						<alternative text="&#34;osszesKozos[i]&#62;osszesKozos[j]&#34;" comment="&#34;&#34;" color="ffffff">
+							<qTrue>
+								<instruction text="&#34;cs = osszesKozos[i]&#34;,&#34;osszesKozos[i] = osszesKozos[j]&#34;,&#34;osszesKozos[j] = cs&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+							</qTrue>
+							<qFalse>
+								<instruction text="&#34;  &#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+							</qFalse>
+						</alternative>
+					</qFor>
+				</for>
+			</qFor>
+		</for>
+		<instruction text="&#34;jelzes = 0&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<for text="&#34;i = 0; i &#60; a; i++&#34;" comment="&#34;&#34;" color="ffffff">
+			<qFor>
+				<for text="&#34;j = 0; j &#60; kozosHossz; j++&#34;" comment="&#34;&#34;" color="ffffff">
+					<qFor>
+						<alternative text="&#34;kozos[i]==osszesKozos[j]&#34;" comment="&#34;&#34;" color="ffffff">
+							<qTrue>
+								<instruction text="&#34;jelzes++&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+							</qTrue>
+							<qFalse>
+								<instruction text="&#34;  &#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+							</qFalse>
+						</alternative>
+					</qFor>
+				</for>
+				<instruction text="&#34;kozosMennyiseg[i] = jelzes&#34;,&#34;jelzes = 0&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+			</qFor>
+		</for>
+		<instruction text="&#34;int maximumDobas = maxDobas(kozosMennyiseg)&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<for text="&#34;i=0; kozosMennyiseg[i]!=maximumDobas; i++&#34;" comment="&#34;&#34;" color="ffffff">
+			<qFor>
+				<instruction text="&#34;  &#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+			</qFor>
+		</for>
+		<instruction text="&#34;int legtobbErtek = osszesKozos[i]&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<instruction text="&#34;KI: legtobbErtek, maximumDobas, ((float) maximumDobas/(float) DOBASSZAM)*100)&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<instruction text="&#34;return 0&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+	</children>
+</root>

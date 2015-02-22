@@ -235,8 +235,6 @@ int main(void){
 		}
 	}
 
-	
-
 	jelzes = 0;
 	
 	for(i = 0; i < a; i++){
