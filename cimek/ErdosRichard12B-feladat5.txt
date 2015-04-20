@@ -1,0 +1,38 @@
+void f5(void) {
+    FILE *fi;
+    int ipcimek[ipn];
+    int iphossz;
+    int i, j, nullszamlalo;
+
+    puts("\n\n5. feladat:");
+
+    iphossz = 0;
+
+    for (i = 0; i<ipn; i++) {
+        ipcimek[i] = 0;
+    }
+
+    for (i = 0; i<ipn; i++) {
+        nullszamlalo = 0;
+        for (j = 0; j<LENIP; j++) {
+            if (ip[i][j]==48) {
+                nullszamlalo++;
+            }
+        }
+        if (nullszamlalo>=18) {
+            ipcimek[iphossz++] = i;
+        }
+    }
+
+    fi = fopen("sok.txt", "w");
+
+    for (i = 0; i<iphossz; i++) {
+        fprintf(fi, "%d. %s", ipcimek[i]+1, ip[ipcimek[i]]);
+    }
+
+    puts("Az adatok kiirasra kerultek a \"sok.txt\" allomanyba!");
+
+    fclose(fi);
+
+    return;
+}

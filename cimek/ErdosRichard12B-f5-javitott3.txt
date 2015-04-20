@@ -1,0 +1,28 @@
+int countZeros(char *ipLine) {
+    int nullszamlalo;
+    int i;
+
+    nullszamlalo = 0;
+    for (i = 0; i<LENIP; i++) {
+        if (ipLine[i]=='0') {
+            nullszamlalo++;
+        }
+    }
+    return nullszamlalo;
+}
+
+void f5(void) {
+    FILE *fi;
+    int i;
+
+    puts("\n\n5. feladat:");
+    fi = fopen("sok.txt", "w");
+    for (i = 0; i<ipn; i++) {
+        if (countZeros(ip[i])>=18) {
+            fprintf(fi, "%d. %s", i+1, ip[i]);
+        }
+    }
+    fclose(fi);
+    puts("Az adatok kiirasra kerultek a \"sok.txt\" allomanyba!");
+    return;
+}
